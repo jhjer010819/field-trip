@@ -79,8 +79,8 @@ export default function AboutPage() {
           </div>
 
           <p className="text-xs leading-5 text-slate-400">
-            * 본 툴에서 생성된 문장은 제출용 기본 초안이므로, 학교별 제출 양식과 실제 아이의 경험에 맞게 가볍게 다듬은 뒤
-            한글(HWP) 파일에 붙여넣어 사용하세요.
+            * 본 툴에서 생성된 문장은 제출용 기본 초안이므로, 실제 아이의 경험에 맞게 가볍게 다듬은 뒤 학교 서식에 맞게
+            붙여넣어 사용하세요.
           </p>
         </div>
       </article>

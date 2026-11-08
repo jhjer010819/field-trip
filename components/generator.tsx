@@ -382,7 +382,7 @@ export function Generator() {
               </div>
               <p className="rounded-2xl border border-amber-200 bg-[#fff8e1] px-4 py-3 text-sm leading-6 text-amber-900">
                 <span aria-hidden="true">💡 </span>
-                안내: 문장 복사 후 사용하시는 학교 HWP 서식 사유란 및 보고서란에 바로 붙여넣으시면 됩니다.
+                안내: 문장 복사 후 학교 서식 사유란 및 보고서란에 바로 붙여넣으시면 됩니다.
               </p>
               <CoupangAd />
             </div>

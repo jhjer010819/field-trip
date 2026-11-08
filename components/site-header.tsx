@@ -12,7 +12,7 @@ export function SiteHeader() {
           </span>
         </Link>
         <span className="shrink-0 rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-600 sm:text-sm">
-          3초 자동생성
+          무료생성(광고)
         </span>
       </div>
     </header>
