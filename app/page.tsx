@@ -1,5 +1,10 @@
-import { HyeonjangApp } from "@/components/hyeonjang-app";
+import { Generator } from "@/components/generator";
+import { SiteFrame } from "@/components/site-frame";
 
 export default function Home() {
-  return <HyeonjangApp />;
+  return (
+    <SiteFrame>
+      <Generator />
+    </SiteFrame>
+  );
 }

@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "현장노트 — 체험학습 신청서·보고서",
+  title: "교외체험학습 서류 헬퍼",
   description:
-    "현장체험학습 신청서와 보고서를 학교 양식에 맞춰 작성하고 인쇄합니다. 문서는 이 브라우저에만 저장됩니다.",
+    "학년과 체험 조건을 고르면 신청 사유와 보고서 느낀점 초안을 같은 페이지에서 만듭니다.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="ko" className="h-full antialiased">
-      <body className="desk-bg min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col bg-[#f8fafc]">{children}</body>
     </html>
   );
 }
