@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { SiteFrame } from "@/components/site-frame";
 
 export const metadata: Metadata = {
-  title: "Privacy — 교외체험학습 서류 헬퍼",
+  title: "개인정보처리방침 — 교외체험학습 서류 헬퍼",
   description: "교외체험학습 서류 헬퍼의 개인정보처리방침입니다.",
 };
 
@@ -11,7 +11,7 @@ export default function PrivacyPage() {
   return (
     <SiteFrame>
       <article className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8">
-        <h1 className="text-2xl font-bold tracking-tight">Privacy</h1>
+        <h1 className="text-2xl font-bold tracking-tight">개인정보처리방침</h1>
         <p className="mt-2 text-sm text-slate-500">시행 2026년 11월 8일</p>
         <div className="mt-4 space-y-4 text-sm leading-7 text-slate-700">
           <p>
