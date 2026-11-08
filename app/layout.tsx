@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     description,
     images: [
       {
-        url: "/og.jpg",
+        url: "/og.jpg?v=2",
         width: 1200,
         height: 630,
         alt: "교외체험학습 제출 문장 메이커 화면",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["/og.jpg"],
+    images: ["/og.jpg?v=2"],
   },
 };
 
