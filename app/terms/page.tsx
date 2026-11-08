@@ -3,8 +3,9 @@ import type { Metadata } from "next";
 import { SiteFrame } from "@/components/site-frame";
 
 export const metadata: Metadata = {
-  title: "이용약관 — 교외체험학습 서류 헬퍼",
-  description: "교외체험학습 서류 헬퍼 이용약관입니다.",
+  title: "이용약관",
+  description: "교외체험학습 서류 이용약관입니다.",
+  alternates: { canonical: "/terms/" },
 };
 
 export default function TermsPage() {

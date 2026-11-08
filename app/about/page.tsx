@@ -3,8 +3,9 @@ import type { Metadata } from "next";
 import { SiteFrame } from "@/components/site-frame";
 
 export const metadata: Metadata = {
-  title: "About — 교외체험학습 서류 헬퍼",
-  description: "교외체험학습 신청 사유와 보고서 느낀점 초안을 만드는 페이지입니다.",
+  title: "About",
+  description: "마이멜로의 교외체험학습 서류 자동 작성 도구 안내입니다.",
+  alternates: { canonical: "/about/" },
 };
 
 export default function AboutPage() {

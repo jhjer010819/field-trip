@@ -3,8 +3,9 @@ import type { Metadata } from "next";
 import { SiteFrame } from "@/components/site-frame";
 
 export const metadata: Metadata = {
-  title: "개인정보처리방침 — 교외체험학습 서류 헬퍼",
-  description: "교외체험학습 서류 헬퍼의 개인정보처리방침입니다.",
+  title: "개인정보처리방침",
+  description: "교외체험학습 서류의 개인정보처리방침입니다.",
+  alternates: { canonical: "/privacy/" },
 };
 
 export default function PrivacyPage() {
