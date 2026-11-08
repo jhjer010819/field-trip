@@ -27,7 +27,7 @@ npm start
 
 이 사이트는 `jhjer010819`의 다른 마이멜로 제품과 같이 GitHub Pages로 올립니다. 빌드 결과는 `out/`이고, `public/CNAME`은 `fieldtrip.mymallow.cloud`입니다.
 
-저장소를 만든 뒤 Settings → Pages → Source를 **GitHub Actions**로 두고 `main`에 푸시하면 배포됩니다.
+`main`에 푸시하면 빌드 결과가 `gh-pages` 브랜치로 올라가고, Pages가 그 브랜치를 게시합니다.
 
 Cloudflare DNS에 이 레코드를 추가합니다. 프록시(주황 구름)는 끄고 DNS만 사용합니다.
 
