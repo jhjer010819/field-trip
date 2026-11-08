@@ -8,9 +8,7 @@ import {
   Briefcase,
   Bus,
   CalendarDays,
-  Camera,
   Check,
-  ChevronRight,
   Clapperboard,
   CookingPot,
   Copy,
@@ -383,9 +381,10 @@ export function Generator() {
                 </button>
               </div>
               <p className="rounded-2xl border border-amber-200 bg-[#fff8e1] px-4 py-3 text-sm leading-6 text-amber-900">
+                <span aria-hidden="true">💡 </span>
                 안내: 문장 복사 후 사용하시는 학교 HWP 서식 사유란 및 보고서란에 바로 붙여넣으시면 됩니다.
               </p>
-              <PromoCards />
+              <CoupangAd />
             </div>
           )}
         </section>
@@ -394,32 +393,22 @@ export function Generator() {
   );
 }
 
-function PromoCards() {
+function CoupangAd() {
   return (
-    <div className="mt-2 flex flex-col gap-3">
-      <p className="text-xs font-semibold text-amber-500">추천 파이프라인 연동</p>
-      <div className="flex items-center gap-3 rounded-2xl border border-slate-200 px-4 py-3">
-        <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500">
-          <Camera className="size-5" aria-hidden="true" />
-        </span>
-        <span className="min-w-0 flex-1">
-          <span className="block text-sm font-semibold text-slate-900">어린이 방수 방진 키즈 카메라</span>
-          <span className="mt-0.5 block text-xs text-slate-500">결과보고서 제출 사진용 1위 아이템</span>
-        </span>
-        <span className="inline-flex shrink-0 items-center gap-0.5 text-sm font-semibold text-slate-500">
-          최저가 보기
-          <ChevronRight className="size-4" aria-hidden="true" />
-        </span>
-      </div>
-      <div className="flex flex-col gap-3 rounded-2xl bg-[#16143a] px-4 py-4 text-white sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <p className="text-xs font-semibold text-indigo-200">초등 학부모 필수</p>
-          <p className="mt-1 text-sm font-bold sm:text-base">전국 공통 HWP 서류 양식 10종 풀 패키지</p>
-        </div>
-        <span className="inline-flex h-10 items-center justify-center rounded-xl bg-[#4f46e5] px-4 text-sm font-semibold">
-          3,900원 다운
-        </span>
-      </div>
+    <div className="mt-2 w-full overflow-x-auto">
+      <iframe
+        src="https://ads-partners.coupang.com/widgets.html?id=1047891&template=carousel&trackingCode=AF7694438&subId=&width=680&height=140&tsource="
+        width={680}
+        height={140}
+        frameBorder={0}
+        scrolling="no"
+        referrerPolicy="unsafe-url"
+        title="쿠팡 파트너스"
+        className="border-0"
+      />
+      <p className="mt-2 text-xs leading-5 text-slate-400">
+        이 영역은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.
+      </p>
     </div>
   );
 }

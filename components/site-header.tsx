@@ -8,7 +8,7 @@ export function SiteHeader() {
         <Link href="/" className="flex min-w-0 items-center gap-2 text-slate-900">
           <Sprout className="size-6 shrink-0 text-emerald-500" aria-hidden="true" />
           <span className="truncate text-base font-bold tracking-tight sm:text-lg">
-            교외체험학습 서류 헬퍼
+            교외체험학습 서류
           </span>
         </Link>
         <span className="shrink-0 rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-600 sm:text-sm">
