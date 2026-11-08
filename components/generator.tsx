@@ -393,19 +393,48 @@ export function Generator() {
   );
 }
 
+const coupangBanners = {
+  narrow: {
+    src: "https://ads-partners.coupang.com/widgets.html?id=1047934&template=carousel&trackingCode=AF7694438&subId=&width=250&height=140&tsource=",
+    width: 250,
+    height: 140,
+  },
+  wide: {
+    src: "https://ads-partners.coupang.com/widgets.html?id=1047891&template=carousel&trackingCode=AF7694438&subId=&width=680&height=140&tsource=",
+    width: 680,
+    height: 140,
+  },
+} as const;
+
 function CoupangAd() {
+  const [wide, setWide] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    const query = window.matchMedia("(min-width: 768px)");
+    const update = () => setWide(query.matches);
+    update();
+    query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
+  }, []);
+
+  const banner = wide === null ? null : wide ? coupangBanners.wide : coupangBanners.narrow;
+
   return (
-    <div className="mt-2 w-full overflow-x-auto">
-      <iframe
-        src="https://ads-partners.coupang.com/widgets.html?id=1047891&template=carousel&trackingCode=AF7694438&subId=&width=680&height=140&tsource="
-        width={680}
-        height={140}
-        frameBorder={0}
-        scrolling="no"
-        referrerPolicy="unsafe-url"
-        title="쿠팡 파트너스"
-        className="border-0"
-      />
+    <div className="mt-2 w-full">
+      <div className="flex h-[140px] justify-center">
+        {banner ? (
+          <iframe
+            src={banner.src}
+            width={banner.width}
+            height={banner.height}
+            frameBorder={0}
+            scrolling="no"
+            referrerPolicy="unsafe-url"
+            title="쿠팡 파트너스"
+            className="border-0"
+          />
+        ) : null}
+      </div>
       <p className="mt-2 text-xs leading-5 text-slate-400">
         이 영역은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.
       </p>
