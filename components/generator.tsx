@@ -355,7 +355,7 @@ export function Generator() {
               {showApplication ? (
                 <article className="rounded-2xl border border-indigo-100 bg-[#f4f3ff] p-4">
                   <h3 className="text-sm font-bold text-indigo-700">[신청서 제출용 사유]</h3>
-                  <p className="mt-2 text-sm leading-7 text-slate-800">{output.application}</p>
+                  <p className="mt-2 whitespace-pre-line text-sm leading-7 text-slate-800">{output.application}</p>
                 </article>
               ) : null}
               {showReport ? (
