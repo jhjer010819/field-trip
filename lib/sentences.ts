@@ -180,27 +180,73 @@ const easyActivities: Record<string, string> = {
   parade: "마술과 서커스, 퍼레이드를 보며 어떻게 그런 장면이 나오는지 상상해 보았습니다.",
 };
 
+const object = (noun: string) => `${noun}${eulReul(noun)}`;
+
+const upperActivities: Record<string, { phrase: string; stem: string; kind?: "dopda" }> = {
+  "science-exhibit": { phrase: object("과학 전시"), stem: "체험" },
+  "art-view": { phrase: object("예술 작품"), stem: "관람" },
+  "dino-bio": { phrase: object("생물 다양성"), stem: "관찰" },
+  space: { phrase: object("우주·천문"), stem: "탐구" },
+  career: { phrase: object("여러 직업"), stem: "체험" },
+  artifacts: { phrase: object("역사 유물"), stem: "관찰" },
+  craft: { phrase: object("전통 공예"), stem: "체험" },
+  "robot-ai": { phrase: object("첨단 기술 전시"), stem: "관람" },
+  forest: { phrase: object("동식물 생태"), stem: "관찰" },
+  camping: { phrase: object("야외 캠핑"), stem: "체험" },
+  "farm-village": { phrase: object("농촌·어촌 생활"), stem: "체험" },
+  ocean: { phrase: object("해양 생물"), stem: "관찰" },
+  arboretum: { phrase: object("식물 생태"), stem: "관찰" },
+  harvest: { phrase: object("농산물"), stem: "수확" },
+  "animal-care": { phrase: object("동물 돌봄"), stem: "체험" },
+  stars: { phrase: object("별자리"), stem: "관측" },
+  "local-food": { phrase: object("식문화"), stem: "체험" },
+  transit: { phrase: object("현지 교통"), stem: "이용" },
+  language: { phrase: object("현지 표현"), stem: "활용" },
+  "culture-diff": { phrase: object("문화적 차이"), stem: "이해" },
+  heritage: { phrase: object("역사 유적지"), stem: "탐방" },
+  terrain: { phrase: object("지형 특성"), stem: "관찰" },
+  "family-bond": { phrase: object("가족 간 화목"), stem: "도모" },
+  adapt: { phrase: "새로운 환경에", stem: "적응" },
+  filial: { phrase: object("효"), stem: "실천" },
+  relatives: { phrase: object("가족애"), stem: "도모" },
+  "holiday-manner": { phrase: object("명절 예절"), stem: "체험" },
+  countryside: { phrase: object("향토 생활"), stem: "이해" },
+  "elders-story": { phrase: object("어른의 이야기"), stem: "청취" },
+  cooking: { phrase: object("제철 요리"), stem: "조리" },
+  housework: { phrase: object("집안일"), stem: "돕", kind: "dopda" },
+  "seasonal-nature": { phrase: object("계절의 변화"), stem: "관찰" },
+  "year-end": { phrase: object("연말 문화"), stem: "체험" },
+  "seasonal-sport": { phrase: object("계절 스포츠"), stem: "체험" },
+  "solar-terms": { phrase: object("절기 음식"), stem: "체험" },
+  scenery: { phrase: object("계절 풍경"), stem: "관찰" },
+  sunrise: { phrase: object("해돋이"), stem: "관람" },
+  "water-safety": { phrase: object("물놀이 안전 수칙"), stem: "실습" },
+  "safety-order": { phrase: object("안전 수칙"), stem: "준수" },
+  musical: { phrase: object("공연"), stem: "관람" },
+  "sports-watch": { phrase: object("스포츠 경기"), stem: "관람" },
+  "ride-courage": { phrase: object("놀이기구의 원리"), stem: "탐구" },
+  carnival: { phrase: "축제에", stem: "참여" },
+  cinema: { phrase: object("관람 예절"), stem: "실습" },
+  parade: { phrase: object("마술과 퍼레이드"), stem: "관람" },
+};
+
 function activitySentences(purposes: PurposeCopy[], grade: GradeBand): string[] {
   if (grade === "lower") {
     return purposes.map((purpose) => easyActivities[purpose.id] ?? `${purpose.label}을 해 보았습니다.`);
   }
 
-  const labels = purposes.map((purpose) => purpose.label);
-  if (labels.length === 1) {
-    return [`${labels[0]}${eulReul(labels[0])} 체험하였습니다.`];
-  }
+  const clauses = purposes.map((purpose, index) =>
+    conjugateActivity(purpose, index === purposes.length - 1),
+  );
+  return [`${clauses.join(", ")}.`];
+}
 
-  const [first, second, ...rest] = labels;
-  const sentences = [`${first}${eulReul(first)} 체험하였고, ${second} 활동도 했습니다.`];
-  if (rest.length === 1) {
-    sentences.push(`또한 ${rest[0]}${eulReul(rest[0])} 함께 해 보았습니다.`);
-  } else if (rest.length > 1) {
-    const last = rest[rest.length - 1];
-    const earlier = rest.slice(0, -1);
-    const particle = gwaWa(earlier[earlier.length - 1]);
-    sentences.push(`또한 ${earlier.join(", ")}${particle} ${last} 활동도 이어서 했습니다.`);
+function conjugateActivity(purpose: PurposeCopy, final: boolean): string {
+  const activity = upperActivities[purpose.id] ?? { phrase: object(purpose.label), stem: "체험" };
+  if (activity.kind === "dopda") {
+    return `${activity.phrase} ${final ? "도왔습니다" : "도왔고"}`;
   }
-  return sentences;
+  return `${activity.phrase} ${activity.stem}${final ? "하였습니다" : "하였고"}`;
 }
 
 function feelingSentences(purpose: PurposeCopy, grade: GradeBand, place: string): string[] {
