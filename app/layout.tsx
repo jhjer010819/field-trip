@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 
 const siteUrl = "https://fieldtrip.mymallow.cloud";
@@ -60,6 +61,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col bg-[#f8fafc]">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         {children}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-318MMGWL1K"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-318MMGWL1K');`}
+        </Script>
       </body>
     </html>
   );
